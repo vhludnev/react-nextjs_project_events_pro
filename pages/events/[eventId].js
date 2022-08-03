@@ -19,24 +19,24 @@ const EventsDetailPage = ({ selectedEvent: event }) => {
    return (
       <>
          <Head>
-            <title>{event.title}</title>
+            <title>{event?.title}</title>
             <meta
                name='description'
-               content={event.description}
+               content={event?.description}
             />
          </Head>
-         <EventSummary title={event.title} />
+         <EventSummary title={event?.title} />
          <EventLogistics
             //date={event.date}
-            date={event.createdAt}
-            address={event.location}
-            image={event.image}
-            imageAlt={event.title}
+            date={event?.createdAt}
+            address={event?.location}
+            image={event?.image}
+            imageAlt={event?.title}
          />
          <EventContent>
-            <p>{event.description}</p>
+            <p>{event?.description}</p>
          </EventContent>
-         <Comments eventId={event.id} />
+         <Comments eventId={event?.id} />
       </>
    );
 }
