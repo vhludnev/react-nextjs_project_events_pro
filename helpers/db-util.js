@@ -1,13 +1,28 @@
 import { MongoClient, ObjectId } from 'mongodb';
 
+// export async function connectToDatabase() {
+//    const url = process.env.MONGO_URI;
+//    const client = new MongoClient(url);
+   
+//    await client.connect();
+//    //console.log('Connected successfully to server');
+//    return client;
+// }
+
 export async function connectToDatabase() {
    const url = process.env.MONGO_URI;
-   const client = new MongoClient(url);
+   const opts = {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+   };
+   const client = new MongoClient(url, opts);
    
    await client.connect();
    //console.log('Connected successfully to server');
    return client;
 }
+
+
 
 export async function insertDocument(client, collection, document) {
    const db = client.db();
