@@ -1,0 +1,87 @@
+.header {
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   align-items: baseline;
+   padding: 0 5%;
+   height: 5rem;
+   background-color: #202020;
+}
+ 
+.logo {
+   font-size: 1.5rem;
+   color: white;
+   font-family: 'Fira', sans-serif;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: #94fdfd;
+}
+ 
+.logo a {
+   text-decoration: none;
+   color: #94fdfd;
+}
+
+.navigation ul {
+   display: flex;
+   gap: 1rem;
+}
+ 
+.navigation a {
+   text-decoration: none;
+   color: #74dacc;
+   font-size: 1rem;
+}
+
+.auth, .auth button {
+   border: none;
+   background-color: transparent;
+   cursor: pointer;
+}
+
+.portrait {
+   display: none !important;
+}
+ 
+@media (min-width: 968px) {
+   .header {
+      padding: 1rem 10%;
+   }
+
+   .logo {
+     font-size: 2rem;
+   }
+ 
+   .logo a, .navigation a, .auth button svg {
+      transition: all .35s ease-in-out;
+   }
+
+   .navigation a {
+      font-size: 1.2rem;
+   }
+
+   .navigation ul {
+      gap: 2rem;
+   }
+
+   .portrait {
+      display: block !important;
+   }
+}
+
+@media (max-width: 568px) {
+   .navigation ul {
+      gap: unset;
+   }
+}
+
+@media screen and (hover: hover) {
+   .logo a:hover, .navigation a:hover {
+      color: #fff;
+   }
+   .auth button:hover svg, .auth div:hover svg {
+      fill: #94fdfd;
+   }
+}

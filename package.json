@@ -1,0 +1,23 @@
+{
+  "name": "react-nextjs-project-events-pro",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "mongodb": "^4.8.1",
+    "next": "12.2.3",
+    "next-auth": "^4.10.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.20.0",
+    "eslint-config-next": "^12.2.2"
+  }
+}

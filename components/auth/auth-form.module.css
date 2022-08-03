@@ -1,0 +1,103 @@
+.auth {
+  margin: 3rem auto;
+  width: 95%;
+  max-width: 25rem;
+  border-radius: 6px;
+  background-color: #38015c;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  text-align: center;
+}
+
+.auth h1 {
+  text-align: center;
+  color: #fff;
+}
+
+.control {
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.control label {
+  display: block;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.control input {
+  font: inherit;
+  background-color: #f1e1fc;
+  /* color: #4bb5b9; */
+  color: #38015c;
+  border-radius: 4px;
+  border: 1px solid white;
+  width: 100%;
+  text-align: left;
+  padding: 0.25rem;
+}
+
+.control .pass {
+  cursor: pointer;
+  position: absolute;
+  top: 29%;
+  right: 0;
+  padding: 1rem;
+}
+
+.actions {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.actions button {
+  cursor: pointer;
+  font: inherit;
+  /* color: white; */
+  color: #000;
+  background-color: #69ffb9;
+  border: 1px solid #69ffb9;
+  border-radius: 4px;
+  padding: 0.5rem 2.5rem;
+}
+
+.actions .toggle {
+  margin-top: 1rem;
+  background-color: transparent;
+  color: #69ffb9;
+  border: none;
+  padding: 0.15rem 1.5rem;
+}
+
+.googleBtn {
+  font-weight: 200;
+  font-size: .9rem;
+  border-radius: 6px;
+  padding: .4rem .7rem .3rem;
+  color: #333;
+  display: flex;
+  gap: .4rem;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+
+@media screen and (hover: hover) {
+  .actions button:hover {
+    background-color: #36c46b;
+    border-color: #36c46b;
+    color: #fff;
+    font-weight: bolder;
+  }
+  .actions .toggle:hover {
+    background-color: transparent;
+    color: #ae82cc;
+  }
+  .googleBtn:hover {
+    color: #38015c;
+    background-color: #94fdfd;
+  }
+}

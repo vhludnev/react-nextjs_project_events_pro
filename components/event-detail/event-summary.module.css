@@ -1,0 +1,28 @@
+.summary {
+   width: 100%;
+   height: 25vh;
+   background-image: linear-gradient(to bottom left,  #008b79, #1180a1);
+}
+ 
+.summary h1 {
+   margin: 0;
+   padding-top: 3rem;
+   padding-left: 1em;
+   padding-right: 1em;
+   font-size: 2rem;
+   text-align: center;
+   text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+   color: white;
+}
+ 
+@media (min-width: 568px) {
+   .summary {
+      height: 30vh;
+   }
+   .summary h1 {
+      padding-top: 1.8rem;
+      font-size: 3rem;
+      padding-left: unset;
+      padding-right: unset;
+   }
+}
