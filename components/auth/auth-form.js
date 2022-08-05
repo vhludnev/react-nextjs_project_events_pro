@@ -83,10 +83,16 @@ const AuthForm = () => {
         if (!result.error) {
           showNotification({
             title: 'Success!',
-            message: 'New User created! Please sign in!',
+            message: 'New User created!',
             status: 'success',
           })
-          setTimeout(() => router.push(router.asPath), 3000);   // redirecting to the same page (t.i. defath auth page)
+          //setTimeout(() => router.push(router.asPath), 3000);   // redirecting to the same page (t.i. defath auth page)
+          await signIn('credentials', {
+            redirect: false,                                    
+            email,
+            password,
+          });
+          router.replace('/');
         }
       } catch (error) {
         showNotification({

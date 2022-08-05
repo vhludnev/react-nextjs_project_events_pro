@@ -45,7 +45,7 @@ export async function getStaticProps(context) {
    const eventId = context.params.eventId;
 
    let client = await connectToDatabase()
-   const event = await getEventDocuments(client, 'eventslist', eventId, { createdAt: -1 })
+   const event = await getEventDocuments(client, 'eventslist', eventId)
    client.close();
 
    if (!event || event.length === 0) {
@@ -55,16 +55,16 @@ export async function getStaticProps(context) {
    return {
       props: {
          selectedEvent: {
-            title: event[0].title,
-            location: event[0].location,
-            image: event[0].image,
-            _id: event[0]._id.toString(),
-            description: event[0].description,
-            isFeatured: event[0].isFeatured,
-            createdAt: event[0].createdAt
+            title: event.title,
+            location: event.location,
+            image: event.image,
+            _id: event._id.toString(),
+            description: event.description,
+            isFeatured: event.isFeatured,
+            createdAt: event.createdAt
          },
       },
-      revalidate: 60
+      revalidate: 30
    };
 }
 
@@ -78,7 +78,7 @@ export async function getStaticPaths() {
  
    return {
       paths,
-      fallback: /* 'blocking' */ true,
+      fallback: 'blocking',
    };
 }
 

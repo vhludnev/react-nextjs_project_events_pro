@@ -14,7 +14,7 @@ export async function connectToDatabase() {
 }
 
 
-export async function getAllDocuments(client, collection, sort, filter = null) {
+export async function getAllDocuments(client, collection, sort, filter = {}) {
    const db = client.db();
 
    const documents = await db
@@ -41,17 +41,16 @@ export async function getFilteredDocuments(client, collection, sort, filter) {
    return documents;
 }
 
-export async function getEventDocuments(client, collection, eventId, sort) {
+export async function getEventDocuments(client, collection, eventId) {
    const db = client.db();
 
    try{
       const documents = await db
          .collection(collection)
-         .find({ _id: new ObjectId(eventId) })
-         .sort(sort)
+         .find({ _id: ObjectId(eventId) })
          .toArray();
 
-      return documents;
+      return documents[0];
    } catch (err) {
       return null
    }
