@@ -35,4 +35,4 @@ npm run dev
 
 ```
 
-[View the app](https://nextjs-events-m9paf6oqu-vhludnev.vercel.app)
+[View the app](https://nextjs-events-pro.vercel.app)

@@ -79,7 +79,7 @@ export default NextAuth({
             user: {
                id: userData._id,
                name: userData.name || '',
-               image: userData.picture || '',
+               picture: userData.picture || '',
                provider: userData.provider || 'credentials',
                email: userData.email
             }

@@ -44,7 +44,8 @@ export async function getStaticProps() {
             _id: ev._id.toString(),
             description: ev.description,
             isFeatured: ev.isFeatured,
-            createdAt: ev.createdAt
+            createdAt: ev.createdAt,
+            user: ev.user || ''
          })),
       },
       revalidate: 1

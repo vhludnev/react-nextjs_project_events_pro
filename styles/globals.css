@@ -42,3 +42,14 @@ ul {
 .showAllBtn {
   padding-top: 1rem;
 }
+
+.dashboardWrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 568px) {
+  .dashboardWrapper {
+    grid-template-columns: 1fr 3fr;
+  }
+}

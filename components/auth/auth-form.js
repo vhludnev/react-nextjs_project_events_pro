@@ -28,6 +28,7 @@ const createUser = async (email, password) => {
 
 
 const AuthForm = () => {
+  const formRef = useRef();
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
   const [isLogin, setIsLogin] = useState(true);
@@ -47,14 +48,14 @@ const AuthForm = () => {
     const password = passwordInputRef.current.value;
 
     // optional: Add validation
-    showNotification({
-      title: 'Logging in...',
-      message: 'Wait for log in.',
-      status: 'pending',
-    });
 
     if (isLogin) {
-      
+      showNotification({
+        title: 'Logging in...',
+        message: 'Wait for log in.',
+        status: 'pending',
+      });
+
       const result = await signIn('credentials', {
         redirect: false,                              // overiding default redirect to error page
         email,
@@ -72,10 +73,20 @@ const AuthForm = () => {
         })
       }
     } else {
+      showNotification({
+        title: 'Creating a new account...',
+        message: 'Wait for the result.',
+        status: 'pending',
+      });
       try {
         const result = await createUser(email, password);
         if (!result.error) {
-          router.replace('/');                 // redirecting to home page if success
+          showNotification({
+            title: 'Success!',
+            message: 'New User created! Please sign in!',
+            status: 'success',
+          })
+          setTimeout(() => router.push(router.asPath), 3000);   // redirecting to the same page (t.i. defath auth page)
         }
       } catch (error) {
         showNotification({
@@ -83,6 +94,7 @@ const AuthForm = () => {
           message: error.message || 'Something went wrong!',
           status: 'error',
         })
+        formRef.current.reset();
       }
     }
   }
@@ -90,7 +102,7 @@ const AuthForm = () => {
   return (
     <section className={classes.auth}>
       <h1>{isLogin ? 'Login' : 'Sign Up'}</h1>
-      <form onSubmit={submitHandler}>
+      <form onSubmit={submitHandler} ref={formRef}>
         <div className={classes.control}>
           <label htmlFor='email'>Your Email</label>
           <input type='email' id='email' required ref={emailInputRef} />

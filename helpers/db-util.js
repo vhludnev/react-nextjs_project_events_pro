@@ -1,14 +1,5 @@
 import { MongoClient, ObjectId } from 'mongodb';
 
-// export async function connectToDatabase() {
-//    const url = process.env.MONGO_URI;
-//    const client = new MongoClient(url);
-   
-//    await client.connect();
-//    //console.log('Connected successfully to server');
-//    return client;
-// }
-
 export async function connectToDatabase() {
    const url = process.env.MONGO_URI;
    const opts = {
@@ -22,14 +13,6 @@ export async function connectToDatabase() {
    return client;
 }
 
-
-
-export async function insertDocument(client, collection, document) {
-   const db = client.db();
-
-   const result = await db.collection(collection).insertOne(document);
-   return result;
-}
 
 export async function getAllDocuments(client, collection, sort, filter = null) {
    const db = client.db();
@@ -64,7 +47,7 @@ export async function getEventDocuments(client, collection, eventId, sort) {
    try{
       const documents = await db
          .collection(collection)
-         .find({ _id: ObjectId(eventId) })
+         .find({ _id: new ObjectId(eventId) })
          .sort(sort)
          .toArray();
 
@@ -73,6 +56,21 @@ export async function getEventDocuments(client, collection, eventId, sort) {
       return null
    }
 }
+
+export async function insertDocument(client, collection, document) {
+   const db = client.db();
+
+   const result = await db.collection(collection).insertOne(document);
+   return result;
+}
+
+export async function deleteDocument(client, collection, eventId) {
+   const db = client.db();
+
+   const result = await db.collection(collection).deleteOne({ _id: new ObjectId(eventId) });
+   return result;
+}
+
 
 export async function getEventComments(client, collection, eventId, sort) {
    const db = client.db();

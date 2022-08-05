@@ -9,10 +9,16 @@
   gap: 1rem;
 }
 
+.item > span {
+  width: 46% !important;
+  margin: 0 auto !important;
+  padding: 1rem !important;
+}
+
 .item img {
   /* width: 100%; */
   object-fit: cover !important;
-  height: 10rem !important;
+  height: 8rem !important;
 }
 
 .content {
@@ -53,8 +59,14 @@
 
 .actions {
   display: flex;
-  flex-direction: column;
   padding: 1rem;
+  justify-content: space-evenly;
+}
+
+.actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .actions a {
@@ -63,6 +75,10 @@
 
 .actions a span {
   vertical-align: middle;
+}
+
+.actions svg {
+  cursor: pointer;
 }
 
 .icon {
@@ -82,6 +98,12 @@
     flex-direction: row;
   }
 
+  .item > span {
+    width: initial !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
   .item img {
     width: 40%;
     height: 14rem;
@@ -94,10 +116,5 @@
 
   .content h2 {
     margin: 1rem 0;
-  }
-
-  .actions {
-    flex-direction: row;
-    justify-content: flex-end;
   }
 }

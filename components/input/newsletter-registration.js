@@ -7,7 +7,7 @@ const NewsletterRegistration = () => {
   const emailInputRef = useRef();
   const formRef = useRef();
   const { showNotification } = useContext(NotificationContext);
-
+  
   const registrationHandler = (event) => {
     event.preventDefault();
 

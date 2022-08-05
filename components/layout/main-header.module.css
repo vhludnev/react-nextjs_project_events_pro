@@ -28,6 +28,10 @@
    display: flex;
    gap: 1rem;
 }
+
+.navigation ul > span {
+   position: relative;
+}
  
 .navigation a {
    text-decoration: none;
@@ -39,11 +43,50 @@
    border: none;
    background-color: transparent;
    cursor: pointer;
+   padding-right: 0;
 }
 
 .portrait {
-   display: none !important;
+   border-radius: 3rem;
+   cursor: pointer;
+   /* display: none !important; */
 }
+
+.dropdown {
+   position: absolute;
+   right: -1.45rem;
+   left: auto;
+   top: 3.2rem;
+   box-shadow: 0 10px 15px -3px rgba(46, 41, 51, 0.08),
+      0 4px 6px -2px rgba(71, 63, 79, 0.16);
+   z-index: 9999;
+   min-width: 7rem;
+   padding: .7rem .65rem .5rem;
+   list-style: none;
+   background-color: #555;
+   border-radius: 0.4rem;
+   gap: .5rem !important;
+   flex-direction: column;
+   text-align: center;
+}
+
+.dropdown a {
+   font-size: .8rem;
+   color: #fff;
+}
+
+.dropdown button {
+   background: none;
+   border: none;
+   cursor: pointer;
+}
+
+.dropdown svg {
+   fill: #fff;
+   height: 20px;
+   width: auto;
+}
+
  
 @media (min-width: 968px) {
    .header {
@@ -66,14 +109,24 @@
       gap: 2rem;
    }
 
-   .portrait {
-      display: block !important;
+   .dropdown {
+      right: -2.5rem;
+   }
+
+   .dropdown a {
+      font-size: 1rem;
    }
 }
 
-@media (max-width: 568px) {
+@media (max-width: 500px) {
    .navigation ul {
       gap: unset;
+   }
+   .auth button {
+      padding-top: 0.7rem; 
+   }
+   .dropdown {
+      top: 4rem;
    }
 }
 
@@ -81,7 +134,10 @@
    .logo a:hover, .navigation a:hover {
       color: #fff;
    }
-   .auth button:hover svg, .auth div:hover svg {
+   .dropdown a:hover {
+      color: #94fdfd;
+   }
+   .auth button:hover svg, .auth div:hover svg, .dropdown button:hover svg {
       fill: #94fdfd;
    }
 }

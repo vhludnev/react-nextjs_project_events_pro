@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react'
+import { useSession } from 'next-auth/react';
 
 import Card from '../ui/card'
 import classes from './new-event-form.module.css'
@@ -9,6 +10,7 @@ const NewEventForm = ({ onAddEvent }) => {
    const addressInputRef = useRef()
    const descriptionInputRef = useRef()
    const [isFeatured, setIsFeatured] = useState(false)
+   const { data: session} = useSession();
 
    const submitHandler = (event) => {
       event.preventDefault()
@@ -20,10 +22,11 @@ const NewEventForm = ({ onAddEvent }) => {
 
       const eventData = {
          title,
-         image,
+         image/* : `https://res.cloudinary.com/demo/image/fetch/${image}` */,
          location,
          description,
-         isFeatured
+         isFeatured,
+         user: session.user
       }
 
       onAddEvent(eventData)
