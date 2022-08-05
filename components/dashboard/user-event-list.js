@@ -1,7 +1,7 @@
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import UserEventItem from './user-event-item';
-import DashboardForm from './Dashboard-form';
+import DashboardForm from './dashboard-form';
 import NotificationContext from '../../store/notification-context';
 import classes from './user-event-list.module.css';
 import { useContext } from 'react';
