@@ -1,12 +1,18 @@
 .alert {
-   margin: 1rem auto;
+   margin: 1rem auto 2rem;
    padding: 1rem 2rem;
    width: 90%;
    max-width: 40rem;
    background-color: #d5bdfc;
    color: #38028d;
    font-weight: bold;
-   font-size: 1.5rem;
+   font-size: 1.2rem;
    text-align: center;
    border-radius: 6px;
+}
+
+@media (min-width: 568px) {
+   .alert {
+      font-size: 1.5rem;
+   }
 }

@@ -26,7 +26,7 @@ const NewEventPage = () => {
   return (
     <>
       <Head>
-        <title>Add a New Meetup</title>
+        <title>Add a New Event</title>
         <meta
           name='description'
           content='Add your own events and create amazing networking opportunities.'

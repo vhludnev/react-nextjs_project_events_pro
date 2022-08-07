@@ -1,8 +1,8 @@
 const SignInIcon = () => {
    return (
       <svg
-         width='28px'
-         height='28px'
+         width='32px'
+         height='32px'
          viewBox='0 0 32 32'
          fill='#fff'
          xmlns='http://www.w3.org/2000/svg'

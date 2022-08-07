@@ -83,7 +83,7 @@ const MainHeader = () => {
                   </li>
                )}
                {session && (<>
-                  <span /* aria-expanded={dropdown ? "true" : "false"} */ onClick={() => setDropdown((prev) => !prev)} >
+                  <span className={classes.auth} /* aria-expanded={dropdown ? "true" : "false"} */ onClick={() => setDropdown((prev) => !prev)} >
                      <Image 
                         className={classes.portrait}  
                         src={session.user?.picture || '/images/noimage.jpg'} 

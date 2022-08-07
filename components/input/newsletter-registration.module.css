@@ -1,8 +1,10 @@
 .newsletter {
-  margin: 3rem auto;
+  /* margin: 3rem auto; */
   width: 90%;
   max-width: 20rem;
   position: relative;
+  margin: 0 auto;
+  padding: 3rem 0;
 }
 
 .newsletter h2 {
@@ -47,6 +49,11 @@
   width: 100%;
 } */
 
+@media screen and (min-width: 568px) {
+  .newsletter button {
+    padding-bottom: 0.25rem;
+  }
+}
 
 @media screen and (hover: hover) {
   .newsletter button:hover,
