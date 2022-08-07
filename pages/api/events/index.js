@@ -12,8 +12,9 @@ async function handler(req, res) {
    }
 
    if (req.method === 'GET') {
+      const page = req.query.p || 0;
       try {
-         const result = await getAllDocuments(client, 'eventslist', { createdAt: -1 })    
+         const result = await getAllDocuments(client, 'eventslist', { createdAt: -1 }, {}, page)    
          res.status(201).json({ events: result });
       } catch (err) {
          res.status(500).json({ message: 'Something went wrong! Try again later.' });

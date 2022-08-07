@@ -14,13 +14,16 @@ export async function connectToDatabase() {
 }
 
 
-export async function getAllDocuments(client, collection, sort, filter = {}) {
+export async function getAllDocuments(client, collection, sort, filter, page, eventspage = 2) {
    const db = client.db();
+   //const eventsPerPage = 2;
 
    const documents = await db
       .collection(collection)
       .find(filter)
       .sort(sort)
+      .skip((page-1) * eventspage)
+      .limit(eventspage)
       .toArray();
 
    return documents;
@@ -51,6 +54,20 @@ export async function getEventDocuments(client, collection, eventId) {
          .toArray();
 
       return documents[0];
+   } catch (err) {
+      return null
+   }
+}
+
+export async function getEventsQuantity(client, collection, filter = {}) {
+   const db = client.db();
+
+   try{
+      const quantity = await db
+         .collection(collection)
+         .countDocuments(filter)
+
+      return quantity;
    } catch (err) {
       return null
    }

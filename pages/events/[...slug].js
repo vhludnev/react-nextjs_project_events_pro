@@ -85,6 +85,7 @@ export async function getServerSideProps(context) {
    let client = await connectToDatabase()
    const events = await getFilteredDocuments(client, 'eventslist', { createdAt: -1 }, dates)
    client.close();
+   console.log(events.length)
 
    return {
       props: {

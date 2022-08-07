@@ -2,11 +2,11 @@ import Link from 'next/link';
 
 import classes from './button.module.css';
 
-const Button = ({ link, onClick, children }) => {
+const Button = ({ link, onClick, pagination = false, style = null, children }) => {
    if (link) {
       return (
          <Link href={link}>
-            <a className={classes.btn}>{children}</a>
+            <a style={style} className={pagination ? classes.pagination : classes.btn}>{children}</a>
          </Link>
       );
    }

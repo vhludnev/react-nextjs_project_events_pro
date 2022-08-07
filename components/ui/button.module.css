@@ -10,6 +10,19 @@
    text-align: center;
    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
 }
+
+.pagination {
+   color: black;
+   float: left;
+   padding: 8px 16px;
+   text-decoration: none;
+   /* transition: background-color .3s; */
+}
+
+.pagination.active {
+   background-color: #4CAF50;
+   color: white;
+}
  
 @media screen and (hover: hover) {
    .btn:hover,
@@ -17,4 +30,8 @@
       background-color: #02afa1;
       border-color: #02afa1;
    }
+
+   /* .pagination:hover:not(.active) {
+      background-color: #ddd;
+   } */
 }
