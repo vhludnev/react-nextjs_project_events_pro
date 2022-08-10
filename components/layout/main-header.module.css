@@ -62,7 +62,7 @@
    position: absolute;
    right: -1.45rem;
    left: auto;
-   top: 3.9rem;
+   top: 3.8rem;
    box-shadow: 0 10px 15px -3px rgba(46, 41, 51, 0.08),
       0 4px 6px -2px rgba(71, 63, 79, 0.16);
    z-index: 9999;
@@ -117,7 +117,6 @@
 
    .dropdown {
       right: -2.5rem;
-      top: 3.1rem !important;
    }
 
    .dropdown a {
@@ -127,11 +126,11 @@
 
 @media (min-width: 536px) {
    .dropdown {
-      top: 3rem !important;
+      top: 3.55rem;
       border-radius: 0 0 0.5rem 0.5rem;
    }
    .navigation ul li:not(:nth-child(3)) {
-      padding-top: 0.3rem;
+      padding-top: 0.35rem;
    }
    .navigation a {
       font-size: 1rem;
@@ -139,18 +138,6 @@
    .auth, .auth button {
       padding-top: 0;
    }
-}
-
-@media (min-width: 400px) {
-   /* .navigation ul {
-      gap: unset;
-   } */
-   /* .auth button {
-      padding-top: 0.7rem; 
-   } */
-   /* .dropdown {
-      top: 3.9rem;
-   } */
 }
 
 @media screen and (hover: hover) {

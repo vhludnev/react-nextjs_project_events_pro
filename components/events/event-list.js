@@ -1,7 +1,7 @@
 import EventItem from './event-item';
 import classes from './event-list.module.css';
 
-const EventList = ({ items }) => {
+const EventList = ({ items, likes }) => {
 
    return (
       <ul className={classes.list}>
@@ -13,6 +13,7 @@ const EventList = ({ items }) => {
                location={location}
                date={createdAt}
                image={image}
+               likes={likes?.filter(el => el.eventId === id )}
             />
          ))}
       </ul>

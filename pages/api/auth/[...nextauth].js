@@ -68,20 +68,28 @@ export default NextAuth({
          }
          return true // Do different verification for other providers that don't have `email_verified`
       },
-      async session({ session }) {
+      // async jwt({ token, user }) {
+      //    if (user) {
+      //       token.id = user.id
+      //    }
+      //    return token
+      // },
+      async session({ session/* , token  */}) {
          if (!session) return;
-
+         //session.user.id = token.id;
          const client = await connectToDatabase();
          
          const userData = await findUserByEmail(client, 'users', session.user.email);
 
          return {
+            //session,
             user: {
                id: userData._id,
                name: userData.name || '',
                picture: userData.picture || '',
                provider: userData.provider || 'credentials',
-               email: userData.email
+               email: userData.email,
+               role: userData.role || 'USER'
             }
          };
       },

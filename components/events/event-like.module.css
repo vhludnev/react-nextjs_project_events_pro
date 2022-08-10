@@ -1,0 +1,14 @@
+.like {
+   padding: 0.5rem 0;
+}
+
+
+@media (min-width: 568px) {
+   .like {
+      padding: unset;
+      position: absolute;
+      right: 0.5rem;
+      top: 0.5rem;
+      cursor: pointer;
+   }
+}

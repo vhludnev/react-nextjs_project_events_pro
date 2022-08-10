@@ -17,10 +17,7 @@ async function handler(req, res) {
 
    const email = session.user.email;
    const { name, picture, oldPassword, newPassword } = req.body
-   //const oldPassword = req.body.oldPassword;
-   //const newPassword = req.body.newPassword;
 
-   //if (!newPassword || newPassword.trim().length < 7) {
    if (newPassword && newPassword.trim().length < 7) {
       res.status(422).json({ message: 'Password should be at least 7 characters long.' });
       return;
@@ -43,7 +40,6 @@ async function handler(req, res) {
 
    const passwordsAreEqual = await verifyPassword(oldPassword, currentPassword);
 
-   //if (!passwordsAreEqual) {
    if (newPassword && oldPassword) {
       if (!passwordsAreEqual) {
          res.status(422).json({ message: 'Invalid old password.' });

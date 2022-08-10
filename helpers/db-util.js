@@ -14,9 +14,8 @@ export async function connectToDatabase() {
 }
 
 
-export async function getAllDocuments(client, collection, sort, filter, page, eventspage = 2) {
+export async function getAllDocuments(client, collection, sort, filter, page, eventspage = 3) {
    const db = client.db();
-   //const eventsPerPage = 2;
 
    const documents = await db
       .collection(collection)
