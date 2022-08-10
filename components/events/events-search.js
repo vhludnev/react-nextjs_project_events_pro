@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { BsSearch } from 'react-icons/bs';
 
 import Button from '../ui/button';
 import classes from './events-search.module.css';
@@ -34,8 +35,8 @@ const EventsSearch = ({ onSearch }) => {
                   ))}
                </select>
             </div>
+            <button><BsSearch color='#03be9f' size={21} /></button>
          </div>
-         <Button>Find Events</Button>
       </form>
    );
 }

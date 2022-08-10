@@ -63,6 +63,10 @@
 
 .actions a {
   display: block;
+  margin: 0 auto;
+  background-color: transparent;
+  color: #03be9f;
+  font-weight: 800;
 }
 
 .actions a span {
@@ -110,5 +114,32 @@
   .actions {
     flex-direction: row;
     justify-content: flex-end;
+  }
+
+  .actions a {
+    font-weight: 200;
+    transition: font-weight 0.25s linear;
+  }
+
+  .actions a:hover {
+    font-weight: 800;
+    background-color: transparent;
+  }
+
+  .actions a:hover .icon {
+    animation: linear infinite alternate;
+    animation-name: move;
+    animation-duration: 1.2s;
+  }
+
+  @keyframes move {
+    0% {
+      left: 0;
+      transform: translateX(0);
+    }
+    100% {
+      left: 100%;
+      transform: translateX(50%);
+    }
   }
 }
