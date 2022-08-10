@@ -39,7 +39,7 @@ const NewEventForm = ({ onAddEvent }) => {
             <form className={classes.form} onSubmit={submitHandler}>
             <div className={classes.control}>
                <label htmlFor='title'>Event Title</label>
-               <input type='text' required id='title' ref={titleInputRef} />
+               <input type='text' required maxLength={25} id='title' ref={titleInputRef} />
             </div>
             <div className={classes.control}>
                <label htmlFor='image'>Event Image</label>
@@ -47,7 +47,7 @@ const NewEventForm = ({ onAddEvent }) => {
             </div>
             <div className={classes.control}>
                <label htmlFor='address'>Address</label>
-               <input type='text' required id='address' ref={addressInputRef} />
+               <input type='text' required maxLength={50} id='address' ref={addressInputRef} />
             </div>
             <div className={classes.control}>
                <label htmlFor='description'>Description</label>

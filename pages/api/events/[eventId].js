@@ -1,4 +1,4 @@
-import { connectToDatabase, getEventDocuments, deleteDocument } from '../../../helpers/db-util';
+import { connectToDatabase, getDocumentById, deleteDocument } from '../../../helpers/db-util';
 
 async function handler(req, res) {
    const eventId = req.query.eventId;
@@ -14,7 +14,7 @@ async function handler(req, res) {
 
    if (req.method === 'GET') {
       try {
-         const result = await getEventDocuments(client, 'eventslist', eventId)
+         const result = await getDocumentById(client, 'eventslist', eventId)
          res.status(201).json({ event: result });
       } catch (err) {
          res.status(500).json({ message: 'Something went wrong! Try again later.'});

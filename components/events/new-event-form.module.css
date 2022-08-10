@@ -29,6 +29,10 @@
    width: 100%;
 }
 
+.control input {
+   text-align: center;
+}
+
 .controlRadio {
    display: flex;
    gap: .5rem;

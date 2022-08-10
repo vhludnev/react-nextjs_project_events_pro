@@ -47,7 +47,7 @@ const Comments = ({ eventId }) => {
   const addCommentHandler = (commentData) => {
     showNotification({
       title: 'Sendin comment...',
-      message: 'Your comment us currently been stored into a database.',
+      message: 'Saving your comment.',
       status: 'pending',
     });
 

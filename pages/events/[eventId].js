@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { connectToDatabase, getAllDocuments, getEventDocuments } from '../../helpers/db-util';
+import { connectToDatabase, getAllDocuments, getDocumentById } from '../../helpers/db-util';
 import EventSummary from '../../components/event-detail/event-summary';
 import EventLogistics from '../../components/event-detail/event-logistics';
 import EventContent from '../../components/event-detail/event-content';
@@ -45,7 +45,7 @@ export async function getStaticProps(context) {
    const eventId = context.params.eventId;
 
    let client = await connectToDatabase()
-   const event = await getEventDocuments(client, 'eventslist', eventId)
+   const event = await getDocumentById(client, 'eventslist', eventId)
    client.close();
 
    if (!event || event.length === 0) {

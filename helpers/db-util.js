@@ -13,8 +13,19 @@ export async function connectToDatabase() {
    return client;
 }
 
+export async function getAllDocuments(client, collection, sort, filter) {
+   const db = client.db();
 
-export async function getAllDocuments(client, collection, sort, filter, page, eventspage = 3) {
+   const documents = await db
+      .collection(collection)
+      .find(filter)
+      .sort(sort)
+      .toArray();
+
+   return documents;
+}
+
+export async function getAllDocumentsByPage(client, collection, sort, filter, page, eventspage = 3) {
    const db = client.db();
 
    const documents = await db
@@ -28,7 +39,7 @@ export async function getAllDocuments(client, collection, sort, filter, page, ev
    return documents;
 }
 
-export async function getFilteredDocuments(client, collection, sort, filter) {
+export async function getDateFilteredDocuments(client, collection, sort, filter) {
    const db = client.db();
 
    const year = +filter.year;
@@ -43,7 +54,7 @@ export async function getFilteredDocuments(client, collection, sort, filter) {
    return documents;
 }
 
-export async function getEventDocuments(client, collection, eventId) {
+export async function getDocumentById(client, collection, eventId) {
    const db = client.db();
 
    try{

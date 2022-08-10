@@ -6,7 +6,7 @@ import EventList from '../../components/events/event-list';
 import ResultsTitle from '../../components/events/results-title';
 import Button from '../../components/ui/button';
 import ErrorAlert from '../../components/ui/error-alert';
-import { connectToDatabase, getFilteredDocuments } from '../../helpers/db-util';
+import { connectToDatabase, getDateFilteredDocuments } from '../../helpers/db-util';
 
 const FilteredEventsPage = ({ filteredEvs }) => {
    const router = useRouter();
@@ -83,7 +83,7 @@ export async function getServerSideProps(context) {
    }
 
    let client = await connectToDatabase()
-   const events = await getFilteredDocuments(client, 'eventslist', { createdAt: -1 }, dates)
+   const events = await getDateFilteredDocuments(client, 'eventslist', { createdAt: -1 }, dates)
    client.close();
 
    return {

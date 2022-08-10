@@ -5,7 +5,7 @@ import { getSession } from "next-auth/react"
 import EventList from '../../components/events/event-list';
 import EventsSearch from '../../components/events/events-search';
 import Pagination from '../../components/ui/pagination';
-import { connectToDatabase, getAllDocuments, getEventsQuantity } from '../../helpers/db-util';
+import { connectToDatabase, getAllDocumentsByPage, getAllDocuments, getEventsQuantity } from '../../helpers/db-util';
 
 const AllEventsPage = ({ events, totalEvents, page, eventsPerPage, likes }) => {
    const router = useRouter();
@@ -38,9 +38,9 @@ export async function getServerSideProps(req) {
    const session = await getSession(req);
 
    let client = await connectToDatabase()
-   const allEvents = await getAllDocuments(client, 'eventslist', { createdAt: -1 }, {}, page, eventsPerPage)
+   const allEvents = await getAllDocumentsByPage(client, 'eventslist', { createdAt: -1 }, {}, page, eventsPerPage)
    const totalEvents = await getEventsQuantity(client, 'eventslist')
-   const allLikes = session ? await getAllDocuments(client, 'likes', {}, { userId: session.user.id }, 1, 5555) || {} : null
+   const allLikes = session ? await getAllDocuments(client, 'likes', null, { userId: session.user.id }) || {} : null
    client.close();
 
    return {

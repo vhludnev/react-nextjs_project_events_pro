@@ -9,3 +9,13 @@
    padding-top: 0.4rem;
    font-weight: 800;
 }
+
+
+@media (min-width: 568px) {
+   .paginationWrapper a svg {
+      transition: transform 0.35s ease-in-out;
+   }
+   .paginationWrapper a:hover svg {
+      transform: scale(1.5);
+   }
+}
