@@ -32,6 +32,7 @@ const EventsDetailPage = ({ selectedEvent: event }) => {
             address={event.location}
             image={event.image}
             imageAlt={event.title}
+            eventId={event._id}
          />
          <EventContent>
             <p>{event.description}</p>

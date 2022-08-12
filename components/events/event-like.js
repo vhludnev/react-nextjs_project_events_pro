@@ -27,7 +27,7 @@ const EventLike = ({ toggleLikeHandler, like }) => {
    }
 
    return (
-      <div className={classes.like} onClick={handleLikeChange} disabled>
+      <div className={classes.like} onClick={handleLikeChange}>
          { !tempLike
            ? <AiOutlineHeart size={21} color='coral' />
            : <AiFillHeart size={21} color='coral' />

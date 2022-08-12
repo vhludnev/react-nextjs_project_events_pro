@@ -12,6 +12,11 @@
    gap: 2rem;
    flex-direction: column;
    align-items: center;
+   position: relative;
+}
+
+.icon svg {
+   margin-left: 0.3rem;
 }
  
 .image {
@@ -49,6 +54,10 @@
 
    .logistics address {
       white-space: pre;
+   }
+
+   .icon svg {
+      margin-top: 0.4rem;
    }
  
    .image {

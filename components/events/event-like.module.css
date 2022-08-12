@@ -1,23 +1,53 @@
 .like {
-   padding: 0.75rem 0;
+   /* padding: 0.75rem 0; */
+
+   position: absolute;
+   right: -0.5rem;
+   top: -0.5rem;
+   box-shadow: 0 2px 6px rgb(0 0 0 / 20%), 1px 2px 1px rgb(0 0 0 / 10%);
+   width: 2rem;
+   height: 2rem;
+   border-radius: 1.25rem;
+   background-color: white;
 }
 
 .like svg {
-   width: 32px;
-   height: 32px;
+   margin-top: 0.4rem;
+   /* width: 32px;
+   height: 32px; */
 }
+
+/* .loading {
+   animation-name: spin;
+   animation-duration: 5000ms;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear; 
+}
+
+@keyframes spin {
+   from {
+       transform:rotate(0deg);
+   }
+   to {
+       transform:rotate(360deg);
+   }
+} */
 
 @media (min-width: 568px) {
    .like {
-      padding: unset;
+      /* padding: unset; */
       position: absolute;
       right: 0.5rem;
       top: 0.5rem;
       cursor: pointer;
+      box-shadow: none;
+      background-color: unset;
+      border: none;
    }
    .like svg {
-      width: inherit;
-      height: inherit;
+      /* width: inherit;
+      height: inherit; */
+      margin-top: unset;
       transition: transform 0.35s ease-in-out;
    }
    .like:hover svg {

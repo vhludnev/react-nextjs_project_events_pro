@@ -5,8 +5,9 @@ async function handler(req, res) {
    const session = await getSession({ req: req });
 
    if (!session) {
-      res.status(401).json({ message: 'Not authenticated!' });
-      return;
+      // res.status(401).json({ message: 'Not authenticated!' });
+      //return;
+      res.status(201).json({ likes: false });
    }
 
    const eventId = req.query.eventId;
@@ -28,7 +29,7 @@ async function handler(req, res) {
       const { like } = req.body;
 
       try {
-         const doc = await getAllDocuments(client, 'likes', {}, { $and: [ { userId }, { eventId } ] })
+         const doc = await getAllDocuments(client, 'likes', null, { $and: [ { userId }, { eventId } ] })
 
          if (doc.length) { 
             const db = client.db();
@@ -49,9 +50,10 @@ async function handler(req, res) {
       }
 
    } else if (req.method === 'GET') {  
+
       try {
-         const result = await getAllDocuments(client, 'likes', {}, { userId })
-         res.status(201).json({ likes: result });
+         const result = await getAllDocuments(client, 'likes', null, { $and: [ { userId }, { eventId } ] })
+         res.status(201).json({ likes: result[0].like });
       } catch (err) {
          res.status(500).json({ message: 'Something went wrong! Try again later.' });
       }
