@@ -53,7 +53,11 @@ async function handler(req, res) {
 
       try {
          const result = await getAllDocuments(client, 'likes', null, { $and: [ { userId }, { eventId } ] })
-         res.status(201).json({ likes: result[0].like });
+         if (result.length) {
+            res.status(201).json({ likes: result[0].like });
+         }  else {
+            res.status(201).json({ likes: false });
+         }
       } catch (err) {
          res.status(500).json({ message: 'Something went wrong! Try again later.' });
       }

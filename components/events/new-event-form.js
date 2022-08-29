@@ -22,7 +22,7 @@ const NewEventForm = ({ onAddEvent }) => {
 
       const eventData = {
          title,
-         image/* : `https://res.cloudinary.com/demo/image/fetch/${image}` */,
+         image: `https://res.cloudinary.com/demo/image/fetch/${image}`,
          location,
          description,
          isFeatured,
